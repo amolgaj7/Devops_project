@@ -7,20 +7,22 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-run:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: configure
-        run: ./configure
+      - name: Show files
+        run: |
+          pwd
+          ls -la
 
-      - name: make
-        run: make
+      - name: Build Hello.c
+        run: |
+          gcc -Wall -Wextra -Werror -O2 -o Hello Hello.c
 
-      - name: make check
-        run: make check
-
-      - name: make Hello
-        run: make Hello.c
+      - name: Run program
+        run: |
+          chmod +x ./Hello
+          ./Hello
