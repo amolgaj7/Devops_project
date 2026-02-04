@@ -12,7 +12,7 @@ jobs:
       
       run-on: ubuntu-latest
       
-      steps:
+   steps:
     - uses: actions/checkout@v4
     - name: configure
       run: ./configure
