@@ -6,6 +6,7 @@ on:
   pull_request:
     branches: [ "main" ]
 
+<<<<<<< HEAD
 jobs:
   build-and-run:
     runs-on: ubuntu-latest
@@ -26,3 +27,39 @@ jobs:
         run: |
           chmod +x ./Hello
           ./Hello
+=======
+jobs: 
+ build:
+      
+      
+      runs-on: windows-latest
+      
+      steps:
+    - uses: actions/checkout@v4
+    - name: show file 
+      run: ls -la
+
+    - name: Build Hello World
+      run: gcc Hello.c -o Hello
+
+    - name: Run Hello world Program
+      run: ./Hello
+
+
+jobs: 
+ build:
+      
+      
+      run-on: ubuntu-latest
+      
+      steps:
+    - uses: actions/checkout@v4
+- name: show file 
+      run: ls -la
+
+    - name: Build Hello World
+      run: gcc Hello.c -o Hello
+
+    - name: Run Hello world Program
+      run: ./Hello
+>>>>>>> 0e57ee6 (Parallel piplining for window and linux(Ubantu))
