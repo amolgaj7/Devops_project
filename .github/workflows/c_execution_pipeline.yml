@@ -7,35 +7,30 @@ on:
     branches: [ "main" ]
 
 jobs: 
- build:
-      
-      
-      runs-on: windows-latest
-      
-      steps:
-    - uses: actions/checkout@v4
-    - name: show file 
-      run: ls -la
+  build-windows:
+    runs-on: windows-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      - name: Show files
+        run: dir
 
-    - name: Build Hello World
-      run: gcc Hello.c -o Hello
+      - name: Build Hello World
+        run: gcc Hello.c -o Hello.exe
 
-    - name: Run Hello world Program
-      run: ./Hello
+      - name: Run Hello World Program
+        run: .\Hello.exe
 
-jobs: 
- build:
-      
-      
-      run-on: ubuntu-latest
-      
-      steps:
-    - uses: actions/checkout@v4
-- name: show file 
-      run: ls -la
+  build-ubuntu:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      - name: Show files
+        run: ls -la
 
-    - name: Build Hello World
-      run: gcc Hello.c -o Hello
+      - name: Build Hello World
+        run: gcc Hello.c -o Hello
 
-    - name: Run Hello world Program
-      run: ./Hello
+      - name: Run Hello World Program
+        run: ./Hello
